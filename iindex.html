@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Experience The Maverick Mind series - exploring journeys of innovative thinkers, leaders, and creators who challenge conventional wisdom.">
+    <meta name="keywords" content="Maverick Mind, Larry Goldberg, innovation, leadership, entrepreneurship, Tesla, tech industry, business insights">
+    <meta name="author" content="The Maverick Mind">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.com/maverick-mind">
+    <meta property="og:title" content="The Maverick Mind - Exploring Innovative Leadership">
+    <meta property="og:description" content="Join Larry Goldberg in exploring the journeys of remarkable individuals who think differently and drive innovation.">
+    <meta property="og:image" content="https://i.ibb.co/vBchDH9/IMG-1706.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="The Maverick Mind Series">
+    <meta property="twitter:description" content="Discover the mindsets and journeys of today's most innovative leaders and thinkers.">
+    <meta property="twitter:image" content="https://i.ibb.co/vBchDH9/IMG-1706.jpg">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Maverick Mind - Episode Teaser</title>
+    <style>
+        /* Base Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            padding: 20px;
+            background: #f0f2f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* Form Styling */
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 3px solid #1a365d;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #1a365d;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1a365d;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #1a365d;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        /* Image Upload */
+        .image-upload {
+            border: 2px dashed #1a365d;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .image-upload:hover {
+            background: #f0f7ff;
+        }
+        .preview-image {
+            max-width: 120px;
+            max-height: 120px;
+            margin: 10px 0;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+        /* Buttons */
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .generate-button, .clear-button {
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            flex: 1;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .generate-button {
+            background: #1a365d;
+            color: white;
+        }
+        .generate-button:hover {
+            background: #2d4a7c;
+        }
+        .clear-button {
+            background: #dc2626;
+            color: white;
+        }
+        .clear-button:hover {
+            background: #b91c1c;
+        }
+        /* Preview Section */
+        .preview-container {
+            display: none;
+            margin-top: 40px;
+            background: linear-gradient(145deg, #f0f7ff 0%, #ffffff 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid #1a365d;
+        }
+        .preview-title {
+            background: #1a365d;
+            padding: 20px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .preview-content {
+            padding: 30px;
+        }
+        .preview-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            border: 1px solid #1a365d;
+        }
+        .preview-logo {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-right: 25px;
+            background: white;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(26, 54, 93, 0.2);
+            border: 2px solid #1a365d;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #1a365d;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px 8px 0 0;
+            padding: 5px 5px 0 5px;
+        }
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #666;
+            transition: all 0.3s ease;
+            border-radius: 6px 6px 0 0;
+            margin-right: 4px;
+        }
+        .tab.active {
+            background: #1a365d;
+            color: white;
+            font-weight: bold;
+        }
+        .tab-content {
+            padding: 25px;
+            display: none;
+            line-height: 1.8;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 0 0 8px 8px;
+            border: 1px solid #1a365d;
+            border-top: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .edit-button {
+            background: white;
+            color: #1a365d;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .edit-button:hover {
+            background: #f0f7ff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h2>Create Episode Teaser - The Maverick Mind</h2>
+            <form id="teaserForm" onsubmit="generateTeaser(event)">
+                <div class="form-group">
+                    <label>Episode Logo</label>
+                    <div class="image-upload" onclick="document.getElementById('logoInput').click()">
+                        <input type="file" id="logoInput" hidden accept="image/*" onchange="handleImageUpload(event, 'logo')">
+                        <img id="logoPreview" class="preview-image" 
+                             src="https://i.ibb.co/vBchDH9/IMG-1706.jpg" 
+                             alt="The Maverick Mind Logo">
+                        <p>Click to change episode logo</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="title" value="The Maverick Mind with Larry Goldberg" required>
+                    
+                    <label>Subtitle</label>
+                    <input type="text" id="subtitle" value="Episode 1: Farzad's Journey" required>
+                </div>
+
+                <div class="form-group">
+                    <label>The Concept</label>
+                    <textarea id="concept" required>What defines a Maverick?
+• Independent thinking and innovation
+• Courage to challenge conventions
+• Positive response to pressure
+• Viewing failure as learning
+• Drive for excellence</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Episode Details</label>
+                    <textarea id="details" required>Join us as we explore:
+• From immigrant roots to Tesla leadership
+• Mathematical mind meets business innovation
+• Supply chain transformation
+• Building a media company
+• The power of seizing opportunities</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Key Highlights</label>
+                    <textarea id="highlights" required>Episode Highlights:
+• Early life and immigration journey
+• Career progression and growth
+• Tesla years and innovations
+• Media company development
+• Leadership insights</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Video URL</label>
+                    <input type="url" id="videoUrl" placeholder="Enter YouTube Video URL" required>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="generate-button">Generate Teaser</button>
+                    <button type="button" class="clear-button" onclick="clearForm()">Clear Form</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="previewContainer" class="preview-container">
+            <div class="preview-title">
+                The Maverick Mind - Episode Preview
+                <button onclick="scrollToForm()" class="edit-button">Edit Content</button>
+            </div>
+            <div class="preview-content" id="previewContent"></div>
+        </div>
+    </div>
+
+    <script>
+        function handleImageUpload(event, type) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(`${type}Preview`).src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function generateTeaser(event) {
+            event.preventDefault();
+            
+            const data = {
+                logo: document.getElementById('logoPreview').src,
+                title: document.getElementById('title').value,
+                subtitle: document.getElementById('subtitle').value,
+                concept: document.getElementById('concept').value.replace(/\n/g, '<br>'),
+                details: document.getElementById('details').value.replace(/\n/g, '<br>'),
+                highlights: document.getElementById('highlights').value.replace(/\n/g, '<br>'),
+                videoUrl: document.getElementById('videoUrl').value
+            };
+
+            const embedUrl = getYoutubeEmbedUrl(data.videoUrl);
+            const videoContent = embedUrl ? 
+                `<div style="position: relative; padding-bottom: 56.25%; height: 0;">
+                    <iframe src="${embedUrl}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" frameborder="0" allowfullscreen></iframe>
+                </div>` :
+                '<p>Please enter a valid YouTube URL</p>';
+
+            const previewHtml = `
+                <div class="preview-header">
+                    <img src="${data.logo}" alt="Logo" class="preview-logo">
+                    <div>
+                        <h2>${data.title}</h2>
+                        <p>${data.subtitle}</p>
+                    </div>
+                </div>
+                
+                <div class="tabs">
+                    <button class="tab active" onclick="switchTab(0)">The Concept</button>
+                    <button class="tab" onclick="switchTab(1)">Episode Details</button>
+                    <button class="tab" onclick="switchTab(2)">Highlights</button>
+                    <button class="tab" onclick="switchTab(3)">Video</button>
+                </div>
+                
+                <div class="tab-content active">${data.concept}</div>
+                <div class="tab-content">${data.details}</div>
+                <div class="tab-content">${data.highlights}</div>
+                <div class="tab-content">${videoContent}</div>
+            `;
+
+            document.getElementById('previewContent').innerHTML = previewHtml;
+            document.getElementById('previewContainer').style.display = 'block';
+            
+            document.getElementById('previewContainer').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        function getYoutubeEmbedUrl(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) 
+                ? `https://www.youtube.com/embed/${match[2]}` 
+                : null;
+        }
+
+        function clearForm() {
+            if (confirm("Are you sure you want to clear the form? This will reset all content.")) {
+                document.getElementById('teaserForm').reset();
+                document.getElementById('logoPreview').src = 'https://i.ibb.co/vBchDH9/IMG-1706.jpg';
+                document.getElementById('previewContainer').style.display = 'none';
+            }
+        }
+
+        function switchTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+            
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+
+        function scrollToForm() {
+            document.querySelector('.form-box').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+    </script>
+</body>
+</html>
